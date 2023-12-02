@@ -11,7 +11,7 @@ pipeline {
 		NEXUS_PASS = 'TestingThisBS2023'
 		RELEASE_REPO = 'vprofile-release'
 		CENTRAL_REPO = 'vpro-maven-central'
-		NEXUSIP = '107.21.70.126' //10.1.1.135
+		NEXUSIP = '10.1.1.135'
 		NEXUSPORT = '8081'
 		NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexuslogin'
@@ -88,12 +88,22 @@ pipeline {
                      classifier: '',
                      file: 'target/vprofile-v2.war',
                      type: 'war']
-                  ]
-                )
-            }
+                    ]
+                  )     
+               }
+             }
+        }
+
+        post {
+        always {
+            echo 'Slack Notifications.'
+            slackSend channel: '#jenkinscicd',
+                color: COLOR_MAP[currentBuild.currentResult],
+                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
     }
 }
+
 // Ends here
 // pipeline {
     
