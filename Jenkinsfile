@@ -11,7 +11,7 @@ pipeline {
 		NEXUS_PASS = 'TestingThisBS2023'
 		RELEASE_REPO = 'vprofile-release'
 		CENTRAL_REPO = 'vpro-maven-central'
-		NEXUSIP = '10.1.1.135'
+		NEXUSIP = '107.21.70.126' //10.1.1.135
 		NEXUSPORT = '8081'
 		NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexuslogin'
