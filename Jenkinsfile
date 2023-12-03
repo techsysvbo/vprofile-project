@@ -107,15 +107,25 @@
 //     }
 // }
 
-// Ends here
-pipeline {
+// // Ends here
+// pipeline {
     
-	agent any
-/*	
-	tools {
-        maven "maven3"
+// 	agent any
+// // /*	
+// // 	tools {
+// //         maven "maven3"
+// //     }
+// // */	
+    def COLOR_MAP = [
+    'SUCCESS': 'good', 
+    'FAILURE': 'danger',
+]
+pipeline {
+    agent any
+    tools {
+        maven "MAVEN3"
+        jdk "OracleJDK8"
     }
-*/	
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
